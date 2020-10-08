@@ -44,7 +44,24 @@ class App extends Component {
            allHogs: this.state.allHogs.sort(compare)
          })
        }
+       else if(e.target.value === 'weight'){
+         
+         this.setState({
+
+          allHogs: this.state.allHogs.sort(function(a, b) { 
+            return a.weight - b.weight;
+            })
+         })
+       }
      }
+
+//      function compareFunction(a,b){
+//   if(a.position > b.position)
+//     return 1;
+//   else
+//     return -1;
+// }
+// data.sort(compareFunction);
 
 
   render() {
