@@ -25,19 +25,33 @@ class App extends Component {
       this.setState({
         allHogs: hogGreasedArr
       })
-   }
+    }
+    
+    
+    hogSort = (e) => {
+      if(e.target.value === 'name'){
+        function compare(a, b){ 
+         const nameA = a.name.toUpperCase();
+         const nameB = b.name.toUpperCase();
+         let comparison = 0;
+         if (nameA > nameB) {
+           comparison = 1;
+         } else if (nameA < nameB) {
+           comparison = -1;
+         }
+         return comparison;}
+         this.setState({
+           allHogs: this.state.allHogs.sort(compare)
+         })
+       }
+     }
 
-  // renderGreased = () => {
-  //   this.setState({
-  //     allHogs: hogGreasedArr
-  //   })
-  // }
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <Filter hogGreaseFilter ={this.hogGreaseFilter}/>
+        <Filter hogGreaseFilter ={this.hogGreaseFilter} hogSort={this.hogSort}/>
         {this.hogObj()}
       </div>
     );

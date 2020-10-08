@@ -12,7 +12,7 @@ render(){
           <select
             className='ui selection dropdown'
             name='sort'
-            // onChange={}
+            onChange={(e) => this.props.hogSort(e)}
           >
             <option value='name'>Name</option>
             <option value='weight'>Weight</option>
